@@ -17,7 +17,7 @@ async def sync_quotes_to_db():
             response.raise_for_status()
             
             soup = BeautifulSoup(response.text, 'html.parser')
-            # 명언 하나하나를 감싸고 있는 div.quote 태그들을 찾습니다.
+            ## 명언 하나하나를 감싸고 있는 div.quote 태그들을 찾습니다.
             quote_elements = soup.select('div.quote')
             
             new_quotes_count = 0

@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 async def get_quotes_from_web():
     """웹 사이트에서 명언 데이터를 스크래핑합니다."""
     url = "https://quotes.toscrape.com/"
-    ## 브라우저처럼 보이게 하여 차단을 방지합니다.
+    # 브라우저처럼 보이게 하여 차단을 방지합니다.
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
     }

@@ -18,6 +18,6 @@ async def sync_quotes():
 async def get_random_quote():
     quote = await quote_service.get_random_quote()
     if not quote:
-        ## 데이터가 없을 때 404를 던집니다.
+        # 데이터가 없을 때 404를 던집니다.
         raise HTTPException(status_code=404, detail="저장된 명언이 없습니다. /sync를 먼저 호출하세요.")
     return quote

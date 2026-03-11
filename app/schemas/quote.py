@@ -7,7 +7,7 @@ class QuoteBase(BaseModel):
     content: str
     category: str
 
-# 생성할 때 사용하는 스키마
+## 생성할 때 사용하는 스키마
 class QuoteCreate(QuoteBase):
     pass
 

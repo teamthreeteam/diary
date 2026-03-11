@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 from tortoise import Tortoise, run_async
-from app.models.userquestionhistory import Question
+from app.models.reflection import Question
 from app.db.database import TORTOISE_ORM
 
 URLS = [
@@ -77,3 +77,4 @@ async def main():
 
 if __name__ == "__main__":
     run_async(main())
+

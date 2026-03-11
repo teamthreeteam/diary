@@ -26,7 +26,7 @@ async def sync_quotes_to_db():
                 content = elem.select_one('span.text').get_text().strip()
                 author = elem.select_one('small.author').get_text().strip()
 
-                # Tortoise ORM으로 저장 (중복 방지: 내용이 같으면 생성하지 않음)
+                ## Tortoise ORM으로 저장 (중복 방지: 내용이 같으면 생성하지 않음)
                 # content는 큰 따옴표로 감싸져 올 수 있으니 필요시 처리
                 await Quote.get_or_create(
                     content=content.replace('“', '').replace('”', ''),

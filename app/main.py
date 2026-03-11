@@ -28,4 +28,3 @@ register_tortoise(
     # config=TORTOISE_CONFIG, # 재확인!!!
     generate_schemas=True, # 서버 켤 때 테이블 없으면 자동 생성
     add_exception_handlers=True,
-)

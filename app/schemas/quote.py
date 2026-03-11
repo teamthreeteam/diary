@@ -1,7 +1,7 @@
 from pydantic import BaseModel
 from typing import Optional
 
-# 명언의 기본 구조
+## 명언의 기본 구조
 class QuoteBase(BaseModel):
     author: str
     content: str

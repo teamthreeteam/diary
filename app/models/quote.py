@@ -7,4 +7,3 @@ class Quote(models.Model):
     category = fields.CharField(max_length=50)
 
     class Meta:
-        table = "quotes"

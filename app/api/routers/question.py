@@ -1,11 +1,12 @@
 from fastapi import APIRouter, HTTPException, Depends
 from app.models.reflection import Reflection
 from app.models.userquestionhistory import UserQuestionHistory
-from app.api.dependencies import get_current_user  # 인증 로직 임포트
+from app.core.security import get_current_user
+from app.schemas.question import QuestionResponse
 
 router = APIRouter(prefix="/questions", tags=["questions"])
 
-@router.get("/random")
+@router.get("/random", response_model=QuestionResponse)
 async def get_random_question(current_user=Depends(get_current_user)):
     # 1. DB에서 랜덤 질문 1개 조회
     question = await Reflection.all().order_by("?").first()
@@ -21,7 +22,6 @@ async def get_random_question(current_user=Depends(get_current_user)):
 
     # 3. 응답 반환
     return {
-        "history_id": history.id,
-        "question_id": question.id,
+        "user_question_id": history.id,
         "question": question.question_text
     }

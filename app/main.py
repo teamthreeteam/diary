@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from fastapi import FastAPI
 from tortoise.contrib.fastapi import register_tortoise
 from app.api.routers import question, quote
@@ -30,5 +31,4 @@ register_tortoise(
         ]
     },
     generate_schemas=True, # 서버 켤 때 테이블 없으면 자동 생성
-    add_exception_handlers=True,
-)
+    add_exception_handlers=True)

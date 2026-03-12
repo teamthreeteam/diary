@@ -2,7 +2,7 @@ import httpx
 from bs4 import BeautifulSoup
 
 SOURCE_URL = "https://quotes.toscrape.com/"
-# 이 헤더가 명호님이 말씀하신 '유저 인증/식별'의 핵심입니다!
+
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 }

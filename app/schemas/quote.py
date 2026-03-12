@@ -1,20 +1,16 @@
-from pydantic import BaseModel
-from typing import Optional
+from pydantic import BaseModel, ConfigDict
 
-## 명언의 기본 구조
-class QuoteBase(BaseModel):
-    author: str
-    content: str
-    category: str
+class MessageResponse(BaseModel):
+    """단순 메시지 응답용 스키마 (API 상태 확인, 성공 메시지 등)"""
+    message: str
 
-## 생성할 때 사용하는 스키마
-class QuoteCreate(QuoteBase):
-    pass
-
-# API 응답으로 내보낼 때 사용하는 스키마
-class QuoteResponse(QuoteBase):
+class QuoteResponse(BaseModel):
+    """명언 데이터 응답용 스키마 (실제 명언 데이터 반환)"""
     id: int
+    content: str
+    author: str
+    category: str| None = None
 
-    class Config:
-        # Tortoise ORM 모델 객체를 Pydantic으로 자동 변환해주는 설정입니다.
-        from_attributes = True
+    # 사진 속 'Type 변환'의 핵심 설정입니다.
+    # 이 설정이 있어야 DB(ORM) 객체를 Pydantic 스키마로 바꿀 수 있어요.
+    model_config = ConfigDict(from_attributes=True)

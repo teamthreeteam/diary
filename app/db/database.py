@@ -8,7 +8,6 @@ TORTOISE_CONFIG = {
     "connections": {"default": os.getenv("DATABASE_URL")},
     "apps": {
         "models": {
-            # 여기에 모든 모델 파일 경로를 적어줍니다.
             "models": [
                 "app.models.user",
                 "aerich.models",

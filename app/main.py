@@ -1,6 +1,8 @@
+<<<<<<< HEAD
 from fastapi import FastAPI
 from tortoise.contrib.fastapi import register_tortoise
-from app.api.routers import question, quote # 다른 라우터가 있다면 추가하세요
+from app.api.routers import question, quote
+from app.api.v1.auth import router as auth_router
 
 app = FastAPI(title="나만의 일기장 API")
 
@@ -12,10 +14,13 @@ app.include_router(quote.router)
 def read_root():
     return {"message": "서버가 정상적으로 작동 중입니다!"}
 
-# ✨ Tortoise ORM 설정 (미션 핵심)
+app.include_router(auth_router, prefix="/api/v1/auth", tags=["인증"])
+
 register_tortoise(
     app,
-    db_url="sqlite://sql_app.db", # DB 파일명
+    # db_url="sqlite://sql_app.db", # DB 파일명
+    # config=TORTOISE_CONFIG, # 재확인!!!
+    config = TORTOISE_ORM, #app/core/config.py에 맞춘 db 연결 방식입니다!
     modules={
         "models": [
             "app.models.user",               # 1. 유저가 가장 기본
@@ -25,7 +30,5 @@ register_tortoise(
             "app.models.userquestionhistory" # 5. 기록은 유저와 질문을 참조
         ]
     },
-    # config=TORTOISE_CONFIG, # 재확인!!!
     generate_schemas=True, # 서버 켤 때 테이블 없으면 자동 생성
-    add_exception_handlers=True,
-)
+    add_exception_handlers=True)

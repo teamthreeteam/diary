@@ -1,7 +1,8 @@
 from fastapi import APIRouter, HTTPException, Depends
 from app.models.reflection import Reflection
 from app.models.userquestionhistory import UserQuestionHistory
-from app.core.security import get_current_user
+#보안 인증 경로 바뀜에 따라 import문 수정
+from app.api.dependencies import get_current_user
 from app.schemas.question import QuestionResponse
 
 router = APIRouter(prefix="/questions", tags=["questions"])

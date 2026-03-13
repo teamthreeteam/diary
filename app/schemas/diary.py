@@ -12,7 +12,7 @@ class DiaryUpdate(BaseModel):
     content: Optional[str] = None
     date: Optional[datetime] = None
 
-class Diary(DiaryCreate):
+class DiaryResponse(DiaryCreate):
     id: int
     user_id: int 
     title: str

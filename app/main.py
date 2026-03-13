@@ -1,8 +1,8 @@
-<<<<<<< HEAD
 from fastapi import FastAPI
 from tortoise.contrib.fastapi import register_tortoise
 from app.api.routers import question, quote
-from app.api.v1.auth import router as auth_router
+from app.api.routers.auth import router as auth_router #0312디렉토리명수정
+from app.core.config import TORTOISE_ORM #0312 추가
 
 app = FastAPI(title="나만의 일기장 API")
 

@@ -4,7 +4,7 @@ class Quote(models.Model):
     id = fields.IntField(pk=True)
     author = fields.CharField(max_length=100)
     content = fields.TextField()
-    category = fields.CharField(max_length=50)
+    category = fields.CharField(max_length=50, null=True)
 
     class Meta:
-        table = "quotes" # 누락된 줄 추가
+        table = "quotes"

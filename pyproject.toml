@@ -29,3 +29,7 @@ dev = [
 tortoise_orm = "app.db.database.TORTOISE_CONFIG"
 location = "./migrations"
 src_folder = "./."
+
+[tool.setuptools.packages.find]
+include = ["app*"]
+exclude = ["migrations*"]

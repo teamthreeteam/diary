@@ -1,6 +1,9 @@
 from fastapi import FastAPI
 from tortoise.contrib.fastapi import register_tortoise
+
 from app.api.routers import question, quote
+from app.api.routers.auth import router as auth_router
+from app.core.config import TORTOISE_ORM
 from app.api.routers.auth import router as auth_router #0312디렉토리명수정
 from app.core.config import TORTOISE_ORM #0312 추가
 

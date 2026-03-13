@@ -7,3 +7,4 @@ class Quote(models.Model):
     category = fields.CharField(max_length=50)
 
     class Meta:
+        table = "quotes" # 누락된 줄 추가
